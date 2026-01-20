@@ -1,16 +1,17 @@
 
 import React from 'react';
-import { LayoutDashboard, Zap, Settings, ShieldQuestion } from 'lucide-react';
+import { LayoutDashboard, Zap, Settings, ShieldQuestion, Package } from 'lucide-react';
 
 interface SidebarProps {
-  activeTab: 'dashboard' | 'architecture' | 'settings';
-  setActiveTab: (tab: 'dashboard' | 'architecture' | 'settings') => void;
+  activeTab: 'dashboard' | 'architecture' | 'settings' | 'deployment';
+  setActiveTab: (tab: 'dashboard' | 'architecture' | 'settings' | 'deployment') => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
   const navItems = [
     { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { id: 'architecture', icon: Zap, label: 'Architecture' },
+    { id: 'deployment', icon: Package, label: 'Deployment' },
     { id: 'settings', icon: Settings, label: 'Settings' },
   ] as const;
 
@@ -38,11 +39,11 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
       <div className="mt-auto p-6">
         <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-700/50">
           <div className="flex items-center gap-2 mb-2">
-            <ShieldQuestion className="w-4 h-4 text-slate-400" />
-            <span className="text-xs font-bold text-slate-300">Need Help?</span>
+            <Package className="w-4 h-4 text-indigo-400" />
+            <span className="text-xs font-bold text-slate-300">Ready for Build?</span>
           </div>
           <p className="text-[11px] text-slate-500 leading-relaxed">
-            Access the YeiciCap Knowledge Base for MoCap integration guides.
+            Run 'npm run dist' to generate the YeiciCap_Hub.exe installer.
           </p>
         </div>
       </div>

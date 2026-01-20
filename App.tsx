@@ -1,23 +1,25 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Activity, 
   Settings, 
-  Share2, 
   Cpu, 
   Network,
   Zap,
   Terminal,
   Calculator,
-  ShieldCheck
+  ShieldCheck,
+  Package,
+  HardDrive
 } from 'lucide-react';
 import { ConnectionStatus, StreamMetrics } from './types';
 import Dashboard from './components/Dashboard';
 import ArchDetails from './components/ArchDetails';
 import Sidebar from './components/Sidebar';
+import DeploymentView from './components/DeploymentView';
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'architecture' | 'settings'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'architecture' | 'settings' | 'deployment'>('dashboard');
   const [metrics, setMetrics] = useState<StreamMetrics>({
     fps: 120,
     latency: 0.95,
@@ -39,7 +41,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex h-screen w-screen bg-slate-950 font-sans text-slate-200">
-      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab as any} />
       
       <main className="flex-1 flex flex-col overflow-hidden">
         <header className="h-16 border-b border-slate-800 flex items-center justify-between px-6 bg-slate-900/50 backdrop-blur-md sticky top-0 z-20">
@@ -51,18 +53,18 @@ const App: React.FC = () => {
               <h1 className="text-lg font-black tracking-tighter bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent leading-none">
                 YEICICAP HUB
               </h1>
-              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.4.0-STABLE</span>
+              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.5.0-DESKTOP</span>
             </div>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Diagnostic: Active</span>
+              <HardDrive className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Local Core: Ready</span>
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Core: Distributing</span>
+              <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Stream: Active</span>
             </div>
             <button className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 transition-colors border border-transparent hover:border-slate-700">
               <Settings className="w-5 h-5" />
@@ -73,11 +75,12 @@ const App: React.FC = () => {
         <div className="flex-1 overflow-y-auto bg-slate-950 p-6 custom-scrollbar">
           {activeTab === 'dashboard' && <Dashboard metrics={metrics} />}
           {activeTab === 'architecture' && <ArchDetails />}
+          {activeTab === 'deployment' && <DeploymentView />}
           {activeTab === 'settings' && (
             <div className="max-w-4xl mx-auto py-12 text-center">
               <Terminal className="w-16 h-16 mx-auto mb-4 text-slate-700" />
-              <h3 className="text-xl font-bold text-slate-200">System Integration Console</h3>
-              <p className="text-slate-500 mt-2">Active TCP Server on Port 54321. JSON Streaming Protocol.</p>
+              <h3 className="text-xl font-bold text-slate-200">System Preferences</h3>
+              <p className="text-slate-500 mt-2">Manage local binary paths and startup configuration.</p>
             </div>
           )}
         </div>
@@ -85,16 +88,16 @@ const App: React.FC = () => {
         <footer className="h-8 border-t border-slate-800 bg-slate-900 px-6 flex items-center justify-between text-[10px] text-slate-500 uppercase tracking-widest font-bold">
           <div className="flex gap-6">
             <span className="flex items-center gap-1.5">
-              <Network className="w-3 h-3 text-indigo-500" /> EXPORTER ACTIVE
+              <Package className="w-3 h-3 text-indigo-500" /> EXE DIST READY
             </span>
             <span className="flex items-center gap-1.5 font-mono text-indigo-400">
-              PORT: 54321
+              BUILD: WIN_X64
             </span>
           </div>
           <div className="flex gap-6 items-center">
-            <span className="text-indigo-400 uppercase tracking-widest">Pipeline: Optimized</span>
+            <span className="text-indigo-400 uppercase tracking-widest tracking-tighter">Production Environment</span>
             <div className="w-px h-3 bg-slate-800" />
-            <span className="text-emerald-400">READY FOR DCC</span>
+            <span className="text-emerald-400">STANDALONE APP</span>
           </div>
         </footer>
       </main>

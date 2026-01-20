@@ -1,0 +1,8 @@
+{
+  "name": "YeiciCap Hub",
+  "version": "1.4.0",
+  "description": "Bridge de alto rendimiento para OptiTrack Motive 2.x. Implementación de Stream Server TCP/UDP y Diagnóstico de Salud.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

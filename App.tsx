@@ -10,7 +10,8 @@ import {
   Calculator,
   ShieldCheck,
   Package,
-  HardDrive
+  HardDrive,
+  Monitor
 } from 'lucide-react';
 import { ConnectionStatus, StreamMetrics } from './types';
 import Dashboard from './components/Dashboard';
@@ -53,18 +54,18 @@ const App: React.FC = () => {
               <h1 className="text-lg font-black tracking-tighter bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent leading-none">
                 YEICICAP HUB
               </h1>
-              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.7.0-RESILIENT</span>
+              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.9.0-NATIVE-GUI</span>
             </div>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-              <HardDrive className="w-3.5 h-3.5 text-indigo-400" />
-              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Local Core: Ready</span>
+              <Monitor className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">GUI: Operational</span>
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Stream: Active</span>
+              <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Engine: Ready</span>
             </div>
             <button className="p-2 hover:bg-slate-800 rounded-lg text-slate-400 transition-colors border border-transparent hover:border-slate-700">
               <Settings className="w-5 h-5" />
@@ -88,7 +89,7 @@ const App: React.FC = () => {
         <footer className="h-8 border-t border-slate-800 bg-slate-900 px-6 flex items-center justify-between text-[10px] text-slate-500 uppercase tracking-widest font-bold">
           <div className="flex gap-6">
             <span className="flex items-center gap-1.5">
-              <Package className="w-3 h-3 text-indigo-500" /> EXE DIST READY
+              <Package className="w-3 h-3 text-indigo-500" /> v1.9.0 DIST READY
             </span>
             <span className="flex items-center gap-1.5 font-mono text-indigo-400">
               BUILD: WIN_X64
@@ -97,7 +98,7 @@ const App: React.FC = () => {
           <div className="flex gap-6 items-center">
             <span className="text-indigo-400 uppercase tracking-widest tracking-tighter">Production Environment</span>
             <div className="w-px h-3 bg-slate-800" />
-            <span className="text-emerald-400">STANDALONE APP</span>
+            <span className="text-emerald-400">CUSTOM-TKINTER READY</span>
           </div>
         </footer>
       </main>

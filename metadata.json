@@ -1,7 +1,7 @@
 {
   "name": "YeiciCap Hub",
-  "version": "1.7.0",
-  "description": "Bridge de alto rendimiento para OptiTrack Motive 2.x. Build pipeline resiliente y soporte para Python Launcher (py).",
+  "version": "1.9.0",
+  "description": "Bridge de alto rendimiento con interfaz gráfica nativa optimizada para flujos de trabajo MoCap.",
   "requestFramePermissions": [
     "camera"
   ]

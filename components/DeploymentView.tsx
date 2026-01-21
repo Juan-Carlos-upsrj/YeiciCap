@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Package, Terminal, Box, ArrowRight, CheckCircle2, FileCode, Play, AlertCircle, Info, ShieldAlert, Cpu } from 'lucide-react';
+import { Package, Terminal, Box, ArrowRight, CheckCircle2, FileCode, Play, AlertCircle, Info, ShieldAlert, Cpu, AlertTriangle } from 'lucide-react';
 
 const DeploymentView: React.FC = () => {
   return (
@@ -8,8 +8,27 @@ const DeploymentView: React.FC = () => {
       <div className="space-y-4 text-center py-8">
         <h2 className="text-3xl font-black text-white">Desktop Distribution Center</h2>
         <p className="text-slate-400 max-w-2xl mx-auto">
-          v1.7.0 - Optimized for Windows 10/11 Production Environments.
+          v1.8.0 - Lean build pipeline. Optimized for stability and zero-compiler installation.
         </p>
+      </div>
+
+      {/* Critical Python Version Warning */}
+      <div className="bg-orange-500/10 border border-orange-500/20 rounded-3xl p-6 space-y-4">
+        <div className="flex items-center gap-3">
+          <AlertTriangle className="w-6 h-6 text-orange-500" />
+          <h3 className="text-lg font-bold text-orange-200">Python Compatibility Note</h3>
+        </div>
+        <p className="text-sm text-slate-400 leading-relaxed">
+          It looks like you might be using a <span className="text-orange-400 font-bold">Preview version of Python (3.14+)</span>. 
+          Scientific packages often fail to build on preview versions because pre-compiled binaries (wheels) are not yet available.
+        </p>
+        <div className="bg-slate-950 p-4 rounded-xl border border-orange-500/10">
+          <p className="text-xs text-slate-300 font-bold uppercase mb-2">Recommended Setup:</p>
+          <ul className="text-xs text-slate-500 space-y-1 list-disc list-inside">
+            <li>Use <span className="text-emerald-400">Python 3.11</span> or <span className="text-emerald-400">3.12</span> for the most stable experience.</li>
+            <li>We have removed <span className="font-mono">scipy</span> to unblock your current build.</li>
+          </ul>
+        </div>
       </div>
 
       {/* Troubleshooting Section */}
@@ -22,21 +41,21 @@ const DeploymentView: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-slate-950/50 p-4 rounded-xl border border-red-500/10">
             <h4 className="text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-              <Terminal className="w-3 h-3" /> Python Not Found?
+              <Terminal className="w-3 h-3" /> Still failing?
             </h4>
-            <p className="text-[11px] text-slate-500 mb-3">If 'python' fails, we use 'py' (Windows Launcher). Install/Repair Python via Microsoft Store if both fail.</p>
+            <p className="text-[11px] text-slate-500 mb-3">Try upgrading pip before installing requirements:</p>
             <div className="bg-slate-950 p-2 rounded font-mono text-[10px] text-emerald-400">
-              py -m pip install -r backend/requirements.txt
+              py -m pip install --upgrade pip
             </div>
           </div>
           
           <div className="bg-slate-950/50 p-4 rounded-xl border border-red-500/10">
             <h4 className="text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-              <Cpu className="w-3 h-3" /> Vite Build Error?
+              <Cpu className="w-3 h-3" /> Force Install
             </h4>
-            <p className="text-[11px] text-slate-500 mb-3">If build fails due to missing modules, force a clean reinstall of dependencies.</p>
+            <p className="text-[11px] text-slate-500 mb-3">If libraries conflict, try a clean force install:</p>
             <div className="bg-slate-950 p-2 rounded font-mono text-[10px] text-blue-400">
-              npm install --force
+              py -m pip install --force-reinstall -r backend/requirements.txt
             </div>
           </div>
         </div>
@@ -48,9 +67,9 @@ const DeploymentView: React.FC = () => {
           <AlertCircle className="w-6 h-6 text-amber-500" />
         </div>
         <div className="space-y-1">
-          <h4 className="font-bold text-amber-200">Step 0: Prepare Python via Launcher</h4>
+          <h4 className="font-bold text-amber-200">Step 0: Prepare Python Environment</h4>
           <p className="text-sm text-amber-500/80 leading-relaxed">
-            Run this command to install requirements using the Windows Python Launcher:
+            Run this command (updated for v1.8.0):
           </p>
           <div className="mt-2 bg-slate-950 p-3 rounded-xl border border-amber-500/10 font-mono text-xs text-amber-400">
             py -m pip install -r backend/requirements.txt
@@ -70,7 +89,7 @@ const DeploymentView: React.FC = () => {
             <h3 className="font-bold text-lg">1. Freeze Core Engine</h3>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            Generate <span className="text-indigo-400 font-bold">hub_core.exe</span>. Now using <span className="font-mono">py -m PyInstaller</span> for stability.
+            Generate <span className="text-indigo-400 font-bold">hub_core.exe</span>. Optimized backend without heavy scientific overhead.
           </p>
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-400">
             npm run dist:backend
@@ -88,7 +107,7 @@ const DeploymentView: React.FC = () => {
             <h3 className="font-bold text-lg">2. Package Desktop UI</h3>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            Build the Electron app using the fixed React/Vite pipeline.
+            Build the Electron app using the production-ready React/Vite pipeline.
           </p>
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-blue-400">
             npm run dist:ui
@@ -99,12 +118,12 @@ const DeploymentView: React.FC = () => {
       {/* Final Build Call to Action */}
       <div className="bg-gradient-to-br from-indigo-900/20 to-slate-900 border border-indigo-500/20 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-2 text-center md:text-left">
-          <h3 className="text-2xl font-bold text-white">YeiciCap Hub Build Cycle</h3>
-          <p className="text-slate-400 text-sm">Full automated compilation for distribution.</p>
+          <h3 className="text-2xl font-bold text-white">Ready for Distribution</h3>
+          <p className="text-slate-400 text-sm">Standalone installer generation for YeiciCap Hub.</p>
         </div>
         <button className="flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-indigo-600/20 active:scale-95 group">
           <Play className="w-5 h-5 fill-current" />
-          COMPILE STANDALONE
+          BUILD PRODUCTION EXE
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
       </div>

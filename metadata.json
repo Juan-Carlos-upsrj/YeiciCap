@@ -1,7 +1,7 @@
 {
   "name": "YeiciCap Hub",
-  "version": "1.9.0",
-  "description": "Bridge de alto rendimiento con interfaz gráfica nativa optimizada para flujos de trabajo MoCap.",
+  "version": "2.0.0",
+  "description": "Bridge profesional de MoCap con interfaz nativa y distribución standalone para Windows.",
   "requestFramePermissions": [
     "camera"
   ]

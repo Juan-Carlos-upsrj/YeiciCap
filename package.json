@@ -1,7 +1,9 @@
 
 {
   "name": "yeicicap-hub",
-  "version": "1.8.0",
+  "version": "2.0.0",
+  "description": "Professional Motion Capture Bridge for OptiTrack Motive",
+  "author": "YeiciCap Team",
   "main": "main.js",
   "scripts": {
     "dev": "vite",
@@ -10,6 +12,22 @@
     "dist:backend": "py -m PyInstaller --onefile --name hub_core backend/main.py",
     "dist:ui": "electron-builder build --win --publish never",
     "dist": "npm run build && npm run dist:backend && npm run dist:ui"
+  },
+  "build": {
+    "appId": "com.yeicicap.hub",
+    "productName": "YeiciCap Hub",
+    "directories": {
+      "output": "dist/installers",
+      "buildResources": "public"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    }
   },
   "dependencies": {
     "react": "^19.2.3",

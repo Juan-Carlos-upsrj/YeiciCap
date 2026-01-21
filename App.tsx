@@ -12,7 +12,8 @@ import {
   Package,
   HardDrive,
   Monitor,
-  CheckCircle
+  CheckCircle,
+  Layout
 } from 'lucide-react';
 import { ConnectionStatus, StreamMetrics } from './types';
 import Dashboard from './components/Dashboard';
@@ -55,14 +56,14 @@ const App: React.FC = () => {
               <h1 className="text-lg font-black tracking-tighter bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent leading-none">
                 YEICICAP HUB
               </h1>
-              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v2.0.0-GOLD</span>
+              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v2.2.0-PRO</span>
             </div>
           </div>
           
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-              <CheckCircle className="w-3.5 h-3.5 text-indigo-400" />
-              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Stable Release</span>
+              <Layout className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">GUI Refresh</span>
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -90,16 +91,16 @@ const App: React.FC = () => {
         <footer className="h-8 border-t border-slate-800 bg-slate-900 px-6 flex items-center justify-between text-[10px] text-slate-500 uppercase tracking-widest font-bold">
           <div className="flex gap-6">
             <span className="flex items-center gap-1.5">
-              <Package className="w-3 h-3 text-indigo-500" /> v2.0.0 DIST
+              <Package className="w-3 h-3 text-indigo-500" /> v2.2.0 DIST
             </span>
             <span className="flex items-center gap-1.5 font-mono text-indigo-400">
               PLATFORM: WIN_X64
             </span>
           </div>
           <div className="flex gap-6 items-center">
-            <span className="text-indigo-400 uppercase tracking-widest tracking-tighter">Production Environment</span>
+            <span className="text-indigo-400 uppercase tracking-widest tracking-tighter tracking-widest">Production Environment</span>
             <div className="w-px h-3 bg-slate-800" />
-            <span className="text-emerald-400">ELECTRON STANDALONE</span>
+            <span className="text-emerald-400">UI/UX REFINED</span>
           </div>
         </footer>
       </main>

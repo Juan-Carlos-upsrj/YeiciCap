@@ -1,7 +1,7 @@
 {
   "name": "YeiciCap Hub",
-  "version": "2.1.0",
-  "description": "Bridge profesional de MoCap con integración total entre backend y frontend nativo.",
+  "version": "2.2.0",
+  "description": "Professional MoCap Bridge con interfaz industrial optimizada para flujos de trabajo de producción.",
   "requestFramePermissions": [
     "camera"
   ]

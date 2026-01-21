@@ -1,7 +1,7 @@
 
 {
   "name": "yeicicap-hub",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "Professional Motion Capture Bridge for OptiTrack Motive",
   "author": "YeiciCap Team",
   "main": "main.js",

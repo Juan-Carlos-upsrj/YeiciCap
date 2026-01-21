@@ -1,7 +1,7 @@
 {
   "name": "YeiciCap Hub",
-  "version": "2.0.0",
-  "description": "Bridge profesional de MoCap con interfaz nativa y distribución standalone para Windows.",
+  "version": "2.1.0",
+  "description": "Bridge profesional de MoCap con integración total entre backend y frontend nativo.",
   "requestFramePermissions": [
     "camera"
   ]

@@ -53,7 +53,7 @@ const App: React.FC = () => {
               <h1 className="text-lg font-black tracking-tighter bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent leading-none">
                 YEICICAP HUB
               </h1>
-              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.6.0-PRODUCTION</span>
+              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest">v1.7.0-RESILIENT</span>
             </div>
           </div>
           

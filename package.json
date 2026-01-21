@@ -1,13 +1,13 @@
 
 {
   "name": "yeicicap-hub",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "dist:backend": "python -m PyInstaller --onefile --name hub_core backend/main.py",
+    "dist:backend": "py -m PyInstaller --onefile --name hub_core backend/main.py",
     "dist:ui": "electron-builder build --win --publish never",
     "dist": "npm run build && npm run dist:backend && npm run dist:ui"
   },
@@ -17,8 +17,12 @@
     "lucide-react": "^0.562.0"
   },
   "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "electron": "^31.0.0",
     "electron-builder": "^24.13.3",
-    "vite": "^5.0.0"
+    "typescript": "^5.5.0",
+    "vite": "^5.4.1"
   }
 }
